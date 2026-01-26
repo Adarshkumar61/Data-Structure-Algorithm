@@ -20,6 +20,6 @@ def binary_search(arr, target):
 arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 target = 5
 result = binary_search(arr, target)
-# print(result)  # Output: 4 (index of target in array)
+print(result)  # Output: 4 (index of target in array)
 
 print(binary_search(arr, 10))  # Output: -1 (not found)    
