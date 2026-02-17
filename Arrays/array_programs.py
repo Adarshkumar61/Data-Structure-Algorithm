@@ -52,7 +52,84 @@ def largest_index(arr):
         elif i > third:
             third = i
     return third
+
+
+# user_input = input('enter list of arrays: ')
+# user_input = user_input.replace(',', ' ')
+# arr = list(map(int, user_input.split()))
+# arr = [int(x) for x in user_input.split()]
+# result = largest_index(arr)
+# # print('third  largest element is: ',result)
+# if result == float('-inf'):
+#     print("Third largest element does not exist")
+# else:
+#     print("Third largest element is:", result)
 # arr = [2,4,25,36,24,255,233, 2023]
 # print(largest_index(arr))
 
-user_inp
+
+# import heapq
+
+# def kth_largest(arr, k):
+#     heap = []
+
+#     for num in arr:
+#         heapq.heappush(heap, num)
+
+#         if len(heap) > k:
+#             heapq.heappop(heap)
+
+#     return heap[0]
+
+
+# arr = [7,2,9,4,1,8]
+# k = 3
+# print(k,"rd largest:", kth_largest(arr, k))
+#kth larges unique element in an array:
+
+# import heapq
+
+# def kth_element(arr, k):
+#     heap = []
+#     for num in set(arr):
+#         heapq.heappush(heap, num)
+
+#         if len(heap) > k:
+#             heapq.heappop(heap)
+#     return heap[0]
+
+# k = int(input('enter kth index: '))
+
+# user_input = input('enter array elements: ')
+
+# arr = [int(x) for x in user_input.split()]
+
+# result = kth_element(arr, k)
+# print(result)
+
+import heapq
+
+def kth_smallest(arr, k):
+    heap = arr[:]          # copy array
+    heapq.heapify(heap)    # convert into min-heap
+
+    for _ in range(k - 1):
+        heapq.heappop(heap)
+        """heapq.heappop(heap)
+two things happen automatically:
+
+The smallest element is removed
+
+The heap is rearranged internally
+ so that the next smallest element moves to heap[0]"""
+
+    return heap[0]
+
+
+k = int(input("Enter k: "))
+user_input = input("Enter array elements: ")
+
+arr = [int(x) for x in user_input.split()]
+
+result = kth_smallest(arr, k)
+print(f"{k}th smallest element:", result)
