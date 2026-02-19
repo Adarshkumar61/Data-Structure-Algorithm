@@ -38,20 +38,20 @@
 
 #finding second largest element in an array:
 
-def largest_index(arr):
-    first = second = third = float('-inf')
+# def largest_index(arr):
+#     first = second = third = float('-inf')
 
-    for i in set(arr):
-        if i > first:
-            third = second
-            second = first
-            first = i
-        elif i > second:
-            third = second
-            second = i
-        elif i > third:
-            third = i
-    return third
+#     for i in set(arr):
+#         if i > first:
+#             third = second
+#             second = first
+#             first = i
+#         elif i > second:
+#             third = second
+#             second = i
+#         elif i > third:
+#             third = i
+#     return third
 
 
 # user_input = input('enter list of arrays: ')
@@ -107,29 +107,77 @@ def largest_index(arr):
 # result = kth_element(arr, k)
 # print(result)
 
-import heapq
+# import heapq
 
-def kth_smallest(arr, k):
-    heap = arr[:]          # copy array
-    heapq.heapify(heap)    # convert into min-heap
+# def kth_smallest(arr, k):
+#     heap = arr[:]          # copy array
+#     heapq.heapify(heap)    # convert into min-heap
 
-    for _ in range(k - 1):
-        heapq.heappop(heap)
-        """heapq.heappop(heap)
-two things happen automatically:
+#     for _ in range(k - 1):
+#         heapq.heappop(heap)
+#         """heapq.heappop(heap)
+# two things happen automatically:
 
-The smallest element is removed
+# The smallest element is removed
 
-The heap is rearranged internally
- so that the next smallest element moves to heap[0]"""
+# The heap is rearranged internally
+#  so that the next smallest element moves to heap[0]"""
 
-    return heap[0]
+#     return heap[0]
 
 
-k = int(input("Enter k: "))
-user_input = input("Enter array elements: ")
+# k = int(input("Enter k: "))
+# user_input = input("Enter array elements: ")
 
-arr = [int(x) for x in user_input.split()]
+# arr = [int(x) for x in user_input.split()]
 
-result = kth_smallest(arr, k)
-print(f"{k}th smallest element:", result)
+# result = kth_smallest(arr, k)
+# print(f"{k}th smallest element:", result)
+
+
+
+
+#finding pair sum in unsorted array:
+# def pair_sum_unsorted(arr, target):
+#     seen = set()
+
+#     for num in arr:
+#         complement = target - num
+
+#         if complement in seen:
+#             return True
+
+#         seen.add(num)
+
+#     return False
+
+
+# arr = [4,7,1,9,3]
+# target = 10
+
+# print(pair_sum_unsorted(arr, target))
+
+
+#finding pair sum in sorted array:
+
+
+
+# def sorted_array(arr, target):
+#     left , right = 0, len(arr)-1
+
+#     while left < right:
+#         current_sum = arr[left]+ arr[right]
+        
+#         if current_sum == target:
+#             return {arr[left], arr[right]}
+#         elif current_sum < target:
+#             left +=1
+#         else:
+#             right -= 1
+#     return "no pair found"
+# arr = [1,2,3,4,5,6,7,8,9]
+# target = 6
+# print(sorted_array(arr, target))
+
+
+
