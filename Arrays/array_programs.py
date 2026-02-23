@@ -85,16 +85,21 @@
 # arr = [7,2,9,4,1,8]
 # k = 3
 # print(k,"rd largest:", kth_largest(arr, k))
-#kth larges unique element in an array:
 
+
+#kth larges unique element in an array:
 # import heapq
 
 # def kth_element(arr, k):
 #     heap = []
 #     for num in set(arr):
 #         heapq.heappush(heap, num)
+        # The heap will maintain the k largest unique elements seen so far.
+        #  If the heap exceeds size k, 
+        # the smallest element (the root of the min-heap) is removed, 
+        # ensuring that only the k largest unique elements remain in the heap.
 
-#         if len(heap) > k:
+        # if len(heap) > k:
 #             heapq.heappop(heap)
 #     return heap[0]
 
@@ -107,11 +112,14 @@
 # result = kth_element(arr, k)
 # print(result)
 
+
+
+# kth smallest element in an array:
 # import heapq
 
 # def kth_smallest(arr, k):
-#     heap = arr[:]          # copy array
-#     heapq.heapify(heap)    # convert into min-heap
+    # heap = arr[:]          # copy array
+    # heapq.heapify(heap)   # convert into min-heap
 
 #     for _ in range(k - 1):
 #         heapq.heappop(heap)
@@ -158,11 +166,9 @@
 # print(pair_sum_unsorted(arr, target))
 
 
+
 #finding pair sum in sorted array:
-
-
-
-# def sorted_array(arr, target):
+# def finding_pair(arr, target):
 #     left , right = 0, len(arr)-1
 
 #     while left < right:
@@ -177,7 +183,35 @@
 #     return "no pair found"
 # arr = [1,2,3,4,5,6,7,8,9]
 # target = 6
-# print(sorted_array(arr, target))
+# print(finding_pair(arr, target))
 
 
 
+#removing duplicates from sorted array:
+def remove_duplicates(arr):
+    if not arr: # check if the array is empty 
+        return 0# if array is empty return 0 as there are no elements to process
+
+    i = 0  # slow pointer
+    # i marks end of Unique Zone.
+     # j scans entire array.
+    for j in range(1, len(arr)):  # fast pointer
+        # logic here is : if the current element at j
+        #  is different from the last unique element at i,
+         # we have found a new unique element.
+         #  We move the slow pointer i forward and copy
+        if arr[j] != arr[i]:
+
+            i += 1
+            arr[i] = arr[j]
+
+    return i + 1 # cover all the element in unique zone  
+
+
+# arr = [1,1,2,2,3,4,4,5]
+arr = [21, 3, 54]
+new_length = remove_duplicates(arr)
+
+# print("New length:", new_length)
+print("previous array:", arr)
+print("Modified array:", arr[:new_length])
